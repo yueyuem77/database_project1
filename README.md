@@ -16,7 +16,8 @@ The goal of this project is to develop a web-based application that integrates g
 - Provide features to track user activity and game preferences through followers and wish lists.
 
 ## 3. ER Diagram
-![jump drawio](https://github.com/user-attachments/assets/908947bb-f707-4676-88b2-f6fb94a5d1b3)
+
+![227e5a0b19f4dfced357788d4a95187f](https://github.com/user-attachments/assets/3b43610c-ada4-4b96-8aed-c096b23890d1)
 
 The following are the key features to be developed, based on the entity-relationship diagram:
 
