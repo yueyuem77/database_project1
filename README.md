@@ -17,8 +17,7 @@ The goal of this project is to develop a web-based application that integrates g
 
 ## 3. ER Diagram
 
-![b61ff069454082e40696782e672431c8](https://github.com/user-attachments/assets/fe9caabc-e2d6-48a4-b8f4-6561c804bec7)
-
+![project drawio (1)](https://github.com/user-attachments/assets/419f0d9d-5bf0-4ddd-95ee-9852841c7858)
 
 The following are the key features to be developed, based on the entity-relationship diagram:
 
@@ -26,25 +25,23 @@ The following are the key features to be developed, based on the entity-relation
   - Has a unique identifier, user_id (Primary Key).
   - Can follow other users to build a network of followers.
   - Can create posts about games and reply to posts from other users.
-  - --Can post reviews for game
+  - Can post reviews for game
 
-- **Followers**: Each user has a list of followers, which allows for a networked social experience. Users can follow or unfollow each other.
-  - Users can view their `follower_list` to see who is following them.
-  - If the follow is one way, then the user who follow others are fans
-  - If the following is mutual, then the two user are friends
 
 - **Wish List**: Users can maintain a wish list of games they are interested in. This feature enhances user engagement by allowing them to bookmark games they wish to explore or purchase in the future.
-  - Each User only has one wish list
-  - Can be made visible to friends 
+  - Primary key set consists of uid and gameid
+  - Can be made visible to followers 
 
 - **Game**: Central to the platform, games are the items around which most interactions occur. Users can add games to their wish lists and write posts related to specific games.
-  - Has a unique identifier (game_id, platform_id)
+  - Has a unique identifier (game_id, platform)
   - Game can be on multiple platform
   - The application will maintain a catalog of games that users can interact with.
 
 - **Posts**: Users can post content and share their thoughts on games. Other users can engage by replying to these posts, promoting community discussions.
 
-- **Replies**: User can post reply to Post and Reply as well.
+- **Price**: Price is a weak entity set dependent on the existance of game. It is unique for every combination of game and country.
+
+- **Discount**
 
 ## 4. Technical Design Overview
 
