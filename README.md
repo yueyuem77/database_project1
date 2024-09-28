@@ -24,18 +24,17 @@ The following are the key features to be developed, based on the entity-relation
 - **Users**: Core entity representing registered users on the platform.
   - Has a unique identifier, user_id (Primary Key).
   - Can follow other users to build a network of followers.
-  - Can create posts about games.
-  - Can post reviews for game
+  - Can create posts about games which might contains reviews for games
 
-
-- **Wish List**: Users can maintain a wish list of games they are interested in. This feature enhances user engagement by allowing them to bookmark games they wish to explore or purchase in the future.
+- **WishList**: Users can maintain a wish list of games they are interested in. This feature enhances user engagement by allowing them to bookmark games they wish to explore or purchase in the future. Wishlist is a Weak Entity
   - Primary key set consists of uid and gameid
-
+  - If the user is deleted, the wishlist will be deleted.
+  - If the game is deleted, the game will be deleted from the wishlist
 
 - **Game**: Central to the platform, games are the items around which most interactions occur. Users can add games to their wish lists and write posts related to specific games.
   - Has a unique identifier (game_id, platform)
   - Game can be on multiple platform
-  - The application will maintain a catalog of games that users can interact with.
+
 
 - **Posts**: Users can post content and share their thoughts on games.
   - Primary key is postid
@@ -44,20 +43,16 @@ The following are the key features to be developed, based on the entity-relation
 - **Price**: Price is a weak entity set dependent on the existance of game. It is unique for every combination of game and country.
 
 - **Discount**
- - Discount is monitored by the platform
- - Can only last a pariod of time
- - time will not overlap in one country
- - different country will have discount on games
- - different platform will have different discount on games
+  - Discount is monitored by the platform
+  - Can only last a pariod of time
+  - time will not overlap in one country
+  - different country will have discount on games
+  - different platform will have different discount on games
 ## 4. Technical Design Overview
 
 - **Database Design**: The database will manage several entities, including `Users`, `Game`, `Post`, `Reply`, `follower_list`, and `wish_list`. The relationships between these entities will follow the diagram's structure.
   
 - **User Interface**: The UI will allow users to navigate through the platform easily. Users will have access to their profiles, wish lists, follower lists, and posts. Interactive features such as posting content, adding games to wish lists, and replying to posts will be straightforward and intuitive.
-
-- **Backend**: N/A
-
-- **Security**: N/A
 
 ## 5. Technology Stack
 
