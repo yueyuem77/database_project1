@@ -17,7 +17,7 @@ The goal of this project is to develop a web-based application that integrates g
 
 ## 3. ER Diagram
 
-![image](https://github.com/user-attachments/assets/02cf318e-c4d5-4788-b443-1637b2681b3a)
+![image](https://github.com/user-attachments/assets/a9e9e89a-6d69-4a72-8f4c-93ad429f00b6)
 
 The following are the key features to be developed, based on the entity-relationship diagram:
 
