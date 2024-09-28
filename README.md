@@ -45,6 +45,7 @@ The following are the key features to be developed, based on the entity-relation
   - Primary key is postid
     
 - **Price**: Price is a weak entity set dependent on the existance of game. It is unique for every combination of game and country.
+  - price of games varies across platform, country
 
 - **Discount**
   - Discount is monitored by the platform
