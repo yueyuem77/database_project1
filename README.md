@@ -48,11 +48,93 @@ The following are the key features to be developed, based on the entity-relation
   - time will not overlap in one country
   - different country will have discount on games
   - different platform will have different discount on games
-## 4. Technical Design Overview
+## 4. SQL Schema
+```
+Create Table User(
+	uid INT PRIMARY KEY, 
+username VARCHAR(255) NOT NULL,
+phone INT );
 
-- **Database Design**: The database will manage several entities, including `Users`, `Game`, `Post`, `Reply`, `follower_list`, and `wish_list`. The relationships between these entities will follow the diagram's structure.
-  
-- **User Interface**: The UI will allow users to navigate through the platform easily. Users will have access to their profiles, wish lists, follower lists, and posts. Interactive features such as posting content, adding games to wish lists, and replying to posts will be straightforward and intuitive.
+
+Create Table Post(
+	postid INT PRIMARY KEY,
+	uid INT,
+	content TEXT,
+	date DATE
+);
+
+Create Table Follow (
+	follower_id INT REFERENCES  User, 
+followee_id INT REFERENCES User,
+PRIMARY KEY (follower_id, followee_id), 
+);
+
+Create Table Write_Post (
+	uid INT references user,
+	Postid INT references post,
+	Primary key postid
+);
+
+
+
+Create table PLAY (
+	Uid int references user,
+	Gameid int references game,
+	Platform str references game,
+	Duration int,
+	PRIMARY KEY (uid, gameid, platform)
+);
+
+Create table Add_game (
+	Uid int references user,
+	Gameid int references game,
+	Platform str references game,
+	PRIMARY KEY (uid, gameid, platform)
+);
+
+Create table Wishlist_Contain (
+	Uid int references user,
+	Gameid int references game
+	Primary key (uid, gameid)
+);
+
+Create table Mention (
+	Postid references post,
+	Gameid references game,
+	Platform references game,
+	Primary key (postid)
+);
+
+Create table Worth (
+	Gameid int,
+	Platform str,
+	Country str
+);
+
+
+	
+CREATE TABLE Own_Wishlist (
+	Uid INT references user,
+	Gameid references 
+
+
+Create Table Game(
+	gameid INT NOT NULL,
+	platform TEXT  NOT NULL,
+description TEXT,
+rating INT,
+Release_date DATE, 
+	PRIMARY KEY(gameid, platform)
+);
+
+Create Table Wishlist(
+	gameid INT, 
+	uid INT NOT NULL, 
+	FOREIGN KEY uid REFERENCES Users(uid)
+);
+```
+
+
 
 ## 5. Technology Stack
 
