@@ -47,7 +47,7 @@ The following are the key features to be developed, based on the entity-relation
 - **Price**: Price is a weak entity set dependent on the existance of game. It is unique for every combination of game and country.
   - price of games varies across platform, country
 
-- **Discount**
+- **Discount**: Discount is a weak entity set dependent on the existance of game and price
   - Discount is monitored by the platform
   - Can only last a pariod of time
   - time will not overlap in one country
