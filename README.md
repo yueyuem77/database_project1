@@ -24,25 +24,27 @@ The following are the key features to be developed, based on the entity-relation
 - **Users**: Core entity representing registered users on the platform.
   - Has a unique identifier, user_id (Primary Key).
   - Can follow other users to build a network of followers.
-  - Can create posts about games and reply to posts from other users.
+  - Can create posts about games.
   - Can post reviews for game
 
 
 - **Wish List**: Users can maintain a wish list of games they are interested in. This feature enhances user engagement by allowing them to bookmark games they wish to explore or purchase in the future.
   - Primary key set consists of uid and gameid
-  - Can be made visible to followers 
+
 
 - **Game**: Central to the platform, games are the items around which most interactions occur. Users can add games to their wish lists and write posts related to specific games.
   - Has a unique identifier (game_id, platform)
   - Game can be on multiple platform
   - The application will maintain a catalog of games that users can interact with.
 
-- **Posts**: Users can post content and share their thoughts on games. Other users can engage by replying to these posts, promoting community discussions.
-
+- **Posts**: Users can post content and share their thoughts on games.
+  - Primary key is postid
+ 
+    
 - **Price**: Price is a weak entity set dependent on the existance of game. It is unique for every combination of game and country.
 
 - **Discount**
-
+ - Discount is monitored by the platform
 ## 4. Technical Design Overview
 
 - **Database Design**: The database will manage several entities, including `Users`, `Game`, `Post`, `Reply`, `follower_list`, and `wish_list`. The relationships between these entities will follow the diagram's structure.
