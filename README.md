@@ -45,6 +45,10 @@ The following are the key features to be developed, based on the entity-relation
 
 - **Discount**
  - Discount is monitored by the platform
+ - Can only last a pariod of time
+ - time will not overlap in one country
+ - different country will have discount on games
+ - different platform will have different discount on games
 ## 4. Technical Design Overview
 
 - **Database Design**: The database will manage several entities, including `Users`, `Game`, `Post`, `Reply`, `follower_list`, and `wish_list`. The relationships between these entities will follow the diagram's structure.
