@@ -25,6 +25,8 @@ The following are the key features to be developed, based on the entity-relation
   - Has a unique identifier, user_id (Primary Key).
   - Can follow other users to build a network of followers.
   - Can create posts about games which might contains reviews for games
+  - Can record the duration of game played
+  - Can add game to wishlist
 
 - **WishList**: Users can maintain a wish list of games they are interested in. This feature enhances user engagement by allowing them to bookmark games they wish to explore or purchase in the future. Wishlist is a Weak Entity
   - Primary key set consists of uid and gameid
@@ -34,11 +36,13 @@ The following are the key features to be developed, based on the entity-relation
 - **Game**: Central to the platform, games are the items around which most interactions occur. Users can add games to their wish lists and write posts related to specific games.
   - Has a unique identifier (game_id, platform)
   - Game can be on multiple platform
+  - has a detailed description of the game
+  - has a rating for the game
+  - has a release date
 
 
 - **Posts**: Users can post content and share their thoughts on games.
   - Primary key is postid
- 
     
 - **Price**: Price is a weak entity set dependent on the existance of game. It is unique for every combination of game and country.
 
