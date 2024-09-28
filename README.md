@@ -55,88 +55,117 @@ The following are the key features to be developed, based on the entity-relation
   - different platform will have different discount on games
 ## 4. SQL Schema
 ```
-Create Table User(
+CREATE TABLE User(
 	uid INT PRIMARY KEY, 
 username VARCHAR(255) NOT NULL,
 phone INT );
 
 
-Create Table Post(
+CREATE TABLE Post(
 	postid INT PRIMARY KEY,
 	uid INT,
 	content TEXT,
 	date DATE
 );
 
-Create Table Follow (
-	follower_id INT REFERENCES  User, 
-followee_id INT REFERENCES User,
-PRIMARY KEY (follower_id, followee_id), 
-);
 
-Create Table Write_Post (
-	uid INT references user,
-	Postid INT references post,
-	Primary key postid
-);
-
-
-
-Create table PLAY (
-	Uid int references user,
-	Gameid int references game,
-	Platform str references game,
-	Duration int,
-	PRIMARY KEY (uid, gameid, platform)
-);
-
-Create table Add_game (
-	Uid int references user,
-	Gameid int references game,
-	Platform str references game,
-	PRIMARY KEY (uid, gameid, platform)
-);
-
-Create table Wishlist_Contain (
-	Uid int references user,
-	Gameid int references game
-	Primary key (uid, gameid)
-);
-
-Create table Mention (
-	Postid references post,
-	Gameid references game,
-	Platform references game,
-	Primary key (postid)
-);
-
-Create table Worth (
-	Gameid int,
-	Platform str,
-	Country str
-);
-
-
-	
-CREATE TABLE Own_Wishlist (
-	Uid INT references user,
-	Gameid references 
-
-
-Create Table Game(
-	gameid INT NOT NULL,
-	platform TEXT  NOT NULL,
+CREATE TABLE Game(
+	gameid INT,
+	platform TEXT,
 description TEXT,
 rating INT,
 Release_date DATE, 
 	PRIMARY KEY(gameid, platform)
 );
 
-Create Table Wishlist(
-	gameid INT, 
+CREATE TABLE Wishlist(
+	gameid INT NOT NULL, 
 	uid INT NOT NULL, 
-	FOREIGN KEY uid REFERENCES Users(uid)
+	Add_date DATE,
+	FOREIGN KEY uid REFERENCES User(uid)
 );
+
+
+
+CREATE TABLE Follow (
+	follower_id INT REFERENCES User, 
+followee_id INT REFERENCES User,
+PRIMARY KEY (follower_id, followee_id), 
+);
+
+CREATE TABLE Write_Post (
+	uid INT REFERENCES user,
+	Postid INT REFERENCES post,
+	PRIMARY KEY postid
+);
+
+CREATE TABLE PLAY (
+	Uid INT REFERENCES user,
+	Gameid INT REFERENCES game,
+	Platform str REFERENCES game,
+	Duration INT,
+	PRIMARY KEY (uid, gameid, platform)
+);
+
+CREATE TABLE Add_game (
+	Uid INT REFERENCES user,
+	Gameid INT REFERENCES game,
+	Platform str REFERENCES game,
+	PRIMARY KEY (uid, gameid, platform)
+);
+
+CREATE TABLE Wishlist_Contain (
+	Uid INT REFERENCES user,
+	Gameid INT REFERENCES game
+	PRIMARY KEY (uid, gameid)
+);
+
+CREATE TABLE Post_Mention (
+	Postid INT REFERENCES post,
+	Gameid INT REFERENCES game,
+	Platform TEXT REFERENCES game,
+	PRIMARY KEY (postid)
+);
+
+CREATE TABLE Worth (
+	Gameid INT,
+	Platform TEXT,
+	Country TEXT
+	PRIMARY KEY (gameid, platform, country),
+	FOREIGN KEY (gameid, platform) REFERENCES Game(gameid, platform)
+);
+
+CREATE TABLE Price(
+	gameid INT NOT NULL,
+	country TEXT NOT NULL,
+	Platform TEXT NOT NULL，
+	Amount INT NOT NULL,
+	PRIMARY KEY (gameid, country, platform)
+	
+	FOREIGN KEY (gameid, platform) REFERENCES Game(gameid, platform)  ON DELETE CASCADE
+);
+
+CREATE TABLE Discount(
+	Gameid INT,
+	Country TEXT,
+	Discount_rate,
+	Start_date DATE,
+	end_date DATE,
+	FOREIGN KEY  (gameid, platform) REFERENCES Game(gameid, platform)  ON DELETE CASCADE
+
+);
+
+
+CREATE TABLE Have_Discount (
+	Gameid INT,
+	Platform TEXT,
+	Country TEXT,
+	PRIMARY KEY (gameid, platform, country),.
+	FOREIGN KEY (gameid, platform, country) REFERENCES Price(gameid, platform, country) ON DELETE CASCADE
+);
+
+
+
 ```
 
 
