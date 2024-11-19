@@ -1,3 +1,4 @@
+* Original Proposal (https://github.com/yueyuem77/database_project1/edit/main/README.md#Original_Proposal)
 # Extended Proposal for a Game-Based Social Interaction Platform
 Yuntian Zhang  yz4691
 Yueyue Min     ym2980
@@ -10,24 +11,28 @@ The original application allows users to create a wishlist of games they want to
 Beyond this original features, the new expanded application introduces collaboration with game platforms where users can log into their game accounts and our app automatically fetches play history and help user keep track of them in our app. It also allows users to sell game cassettes by posting in the app along with price and pictures. Other users can compare the current price of the game with the proposed price and decide whether or not to complete the deal on trading platforms like eBay. This feature is only for information and does not enable transaction. 
 
 ## Description of ER Design
-We add 2 subclasses to entity *Post* - *Community Post and Pre-owned Game Post* - first one for experience sharing and second for selling their cassettes. A new weak entity *Platform Game Account* is also added to support automatical collecting user information on game platforms. 
+We add 2 subclasses to entity *Post* - *Community Post and Pre-owned Game Post* - first one for experience sharing and second for selling their cassettes. A new weak entity *Platform Game Account* is also added to support automatical collecting user information on game platforms. The relationship between *Community Post* and *Game* is *Mention*, while the relationship between *Pre-owned Game Post* and "Game* is *Sell*. 
 - Shared features: postid (primary key), uid, title, content, date
 - Community Post features: picture, rating
 - Pre-owned Game Post features: picture, price
-
-
 A new relationship *Play_history* is also added with two features: duration and achievement. They aim to record main user game history information. 
-- 
+- Features: duration, achievement
 
 ![project drawio (1)](https://github.com/user-attachments/assets/ef47f62d-5b1e-4892-90c4-dbdda830c094)
 
+## SQL Schema
+
+## 3 interesting SQL queries
+```
+# Find the game that has most community posts about it
+
+# Find the user who has longest game time on Nintendo Switch
+
+# Average price difference between user sell price and current price
+```
 
 
-
-
-
-
-# Original Proposal for a Game-Based Social Interaction Platform
+# Original_Proposal
 
 ## Short version
 The application is a game-based social interaction platform where users can follow each other, post game reviews, create wish lists, and engage in discussions through replies to posts. Users will be able to add games to their personal wish lists, follow other gamers, and write reviews about specific games. Entities in the application include Users, Games, Posts, Replies, Follower lists, and Wish lists. Relationships such as "Users follow other users" and "Users write posts" will link these entities. Key attributes include usernames, game titles, post content, and timestamps for interactions. Real-world constraints include unique usernames, non-redundant game entries, and a limit on the length of posts. Data for the games will come from a combination of public game databases and user-generated entries. Users can browse games, add them to their wish lists, write reviews, and reply to other users' posts, creating an interactive experience similar to social media platforms. The challenge lies in handling dynamic interactions such as managing real-time replies and keeping the follower network updated efficiently.
