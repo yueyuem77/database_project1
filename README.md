@@ -1,6 +1,6 @@
-* [Original Proposal](https://github.com/yueyuem77/database_project1/edit/main/README.md#Original_Proposal)
 # Extended Proposal for a Game-Based Social Interaction Platform
 Yuntian Zhang  yz4691
+
 Yueyue Min     ym2980
 
 PostgreSQL account name: yz4691
