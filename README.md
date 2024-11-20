@@ -47,6 +47,9 @@ JOIN Price ON Sell.gameid = Price.gameid AND Sell.platform = Price.platform
 ```
 
 
+
+---
+
 # Original_Proposal
 
 ## Short version
