@@ -25,10 +25,25 @@ A new relationship *Play_history* is also added with two features: duration and 
 ## 3 interesting SQL queries
 ```
 # Find the game that has most community posts about it
+SELECT gameid, platform, count(distinct postid) as num
+FROM Mention
+GROUP BY gameid, platform
+ORDER BY num DESC
+LIMIT 1;
 
 # Find the user who has longest game time on Nintendo Switch
+SELECT uid, sum(duration) as time
+FROM Play_history
+WHERE platform = 'Switch'
+GROUP BY uid
+ORDER BY time DESC
+LIMIT 1;
 
-# Average price difference between user sell price and current price
+# Average price difference between current price and user sell price
+SELECT avg(amount-price) as diff
+FROM PreOwnedGamePost
+JOIN Sell ON PreOwnedGamePost.postid = Sell.postid
+JOIN Price ON Sell.gameid = Price.gameid AND Sell.platform = Price.platform
 ```
 
 
