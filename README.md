@@ -3,7 +3,7 @@
 Yuntian Zhang  yz4691
 Yueyue Min     ym2980
 
-PostgreSQL account name: 
+PostgreSQL account name: yz4691
 
 ## Features
 The original application allows users to create a wishlist of games they want to purchase, keep track of price and discount changes, follow other users' wishlists and post comments on their gaming experience. 
